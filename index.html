@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO Article Generator</title>
+    <link rel="stylesheet" href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="text-center mb-0">SEO Article Generator</h2>
+                    </div>
+                    <div class="card-body">
+                        <!-- Keyword Input Form -->
+                        <form id="generatorForm">
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="mainKeyword" class="form-label">Main Keyword:</label>
+                                    <input type="text" class="form-control" id="mainKeyword" placeholder="Enter main keyword..." required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="seedKeywords" class="form-label">Seed Keywords (comma separated):</label>
+                                    <input type="text" class="form-control" id="seedKeywords" placeholder="keyword1, keyword2, keyword3...">
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary" id="generateTitlesBtn">
+                                    Generate Titles
+                                </button>
+                            </div>
+                        </form>
+
+                        <!-- Titles Selection -->
+                        <div id="titlesContainer" class="mt-4 d-none">
+                            <h5>Select a title for your article:</h5>
+                            <div class="titles-list mb-3"></div>
+                            <div class="text-center">
+                                <button class="btn btn-success" id="generateArticleBtn">Generate Article</button>
+                            </div>
+                        </div>
+
+                        <!-- Generated Article -->
+                        <div id="articleContainer" class="mt-4 d-none">
+                            <h5>Generated Article:</h5>
+                            <div class="card">
+                                <div class="card-body article-content">
+                                    <div id="generatedArticle"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Loading Indicator -->
+                        <div id="loadingContainer" class="text-center mt-4 d-none">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <p class="mt-2" id="loadingText">Generating titles...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
